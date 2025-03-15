@@ -1,13 +1,20 @@
+import {  useState } from "react";
 import "./Card.scss"
-
+import React from "react";
 
 
 export default function Cards(props) {
-  
+  const [isAdded, setIsAdded] = useState(false);
+
+  const onClickPlus = () => {
+    setIsAdded(!isAdded);
+  }
+
+ 
   
   return (
     <div className="card">
-      <div className="favorite">
+      <div className="favorite" onClick={props.onClickFavorite}>
         <img width={20} src="/images/heart.png" alt="heart-unliked" />
       </div>
 
@@ -18,7 +25,7 @@ export default function Cards(props) {
           <span>Price:</span>
           <b>{props.price} uah</b>
         </div>
-        <button className="button" onClick={props.onClick}>Додати у кошик</button>
+        <button className="button" onClick={onClickPlus} style={{color:isAdded ? "red" : "orange"}}>{isAdded ? "У кошику" : "Додати у кошик"}</button>
       </div>
     </div>
   );

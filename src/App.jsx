@@ -1,8 +1,10 @@
-import React from "react";
+
 import Cards from "./components/Card/Card";
 import Header from "./components/Header";
 import Drower from "./components/Drower";
 import Content from "./components/Content";
+import { useState } from "react";
+
 
 const Products = [
   {
@@ -31,14 +33,22 @@ const Products = [
 ];
 
 function App() {
+ const [cartOpened, setCartOpened] = useState(false);
   return (
     <div className="wrapper">
-      <Drower />
-      <Header />
+       {cartOpened ? <Drower onClose={() => setCartOpened(false)} /> : null}
+      <Header onClickCart={() => setCartOpened(true)}  />
       <Content />
       <div className="content-cards">
         {Products.map((obj) => (
-          <Cards  key={obj.name} title={obj.name} price={obj.price} imageUrl={obj.imageUrl} onClick={() =>console.log(obj) } />
+          <Cards  
+          key={obj.name} 
+          title={obj.name} 
+          price={obj.price} 
+          imageUrl={obj.imageUrl} 
+          onClickFavorite={() => console.log("add to to")}
+          onClickBtn={() =>console.log(obj) }
+           />
          
            
         ))}

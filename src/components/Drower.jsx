@@ -1,10 +1,15 @@
-export default function Drower() {
+export default function Drower(props) {
   return (
-    <div style={{ display: "none" }} className="overlay">
+    <div className="overlay">
       <div className="drawer">
         <h2>
           Кошик{" "}
-          <img className="remove-btn" width={20} src="/images/btn-remove.png" />
+          <img
+            onClick={props.onClose}
+            className="remove-btn"
+            width={20}
+            src="/images/btn-remove.png"
+          />
         </h2>
 
         <div className="items">

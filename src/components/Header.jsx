@@ -1,7 +1,8 @@
 
 
-export default function Header(){
-
+export default function Header(props){
+ console.log(props);
+ 
     return (
           <header>
               <div className="headerLeft">
@@ -20,9 +21,9 @@ export default function Header(){
               
            
             <ul className="headerRight">
-              <li><img width={30} src="/images/heart.png" alt="heart-logo" /></li>
-              <li><img width={30} src="/images/basket_icon-icons.com_66289.svg" alt="img-case" /><span> uah.</span></li>
-              <li><img width={30} src="/images/user.png" alt="User-logo" /></li>
+              <li><img width={30} height={30} src="/images/heart.png" alt="heart-logo" /></li>
+              <li onClick={props.onClickCart}><img width={30} height={30} src="/images/basket_icon-icons.com_66289.svg" alt="img-case" /><span > uah.</span></li>
+              <li><img width={30} height={30} src="/images/user.png" alt="User-logo" /></li>
             </ul>
             </header>
     )
