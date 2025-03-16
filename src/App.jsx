@@ -21,7 +21,7 @@ function App() {
  },[]);
 
 const onAddToCart = (obj) =>{
- console.log(obj);
+ setCartItems(prev => [...prev,obj])
  
 }
  
