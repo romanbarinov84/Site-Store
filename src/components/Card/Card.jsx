@@ -3,10 +3,11 @@ import "./Card.scss"
 import React from "react";
 
 
-export default function Cards(props) {
+export default function Cards({onClickFavorite,imageUrl,title,price,onClickBtn}) {
   const [isAdded, setIsAdded] = useState(false);
 
   const onClickPlus = () => {
+    onClickBtn({imageUrl,title,price})
     setIsAdded(!isAdded);
   }
 
@@ -14,16 +15,16 @@ export default function Cards(props) {
   
   return (
     <div className="card">
-      <div className="favorite" onClick={props.onClickFavorite}>
-        <img width={20} src="/images/heart.png" alt="heart-unliked" />
+      <div className="favorite" onClick={onClickFavorite}>
+        <img  src="/images/heart.png" alt="heart-unliked" />
       </div>
 
-      <img width={250} src={props.imageUrl} alt="images" />
-      <h4>{props.title}</h4>
+      <img width={250} src={imageUrl} alt="images" />
+      <h4>{title}</h4>
       <div>
         <div className="card-price">
           <span>Price:</span>
-          <b>{props.price} uah</b>
+          <b>{price} uah</b>
         </div>
         <button className="button" onClick={onClickPlus} style={{color:isAdded ? "red" : "orange"}}>{isAdded ? "У кошику" : "Додати у кошик"}</button>
       </div>

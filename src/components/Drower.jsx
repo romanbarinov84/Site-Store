@@ -1,47 +1,35 @@
-export default function Drower(props) {
+export default function Drower({onClose,items = []}) {
   return (
     <div className="overlay">
       <div className="drawer">
         <h2>
           Кошик{" "}
           <img
-            onClick={props.onClose}
+            onClick={onClose}
             className="remove-btn"
             width={20}
             src="/images/btn-remove.png"
           />
         </h2>
 
-        <div className="items">
+        <div  className="items">
+         {items.map((obj) => (
           <div className="cart-item">
-            <img
-              width={150}
-              src="src/assets/images/вареники/вареники з вишнею/vareniki-cherries-2-600x400.jpg"
-            />
-            <div>
-              <p>вареники з вишнею</p>
-              <b>235 uah</b>
-            </div>
-            <img
-              className="remove-btn"
-              width={10}
-              src="/images/btn-remove.png"
-            />
+          <img
+            width={150}
+            src={obj.imageUrl}
+          />
+          <div>
+            <p>{obj.name}</p>
+            <b> Price : {obj.price} uah </b>
           </div>
-          <div className="cart-item">
-            <img
-              width={150}
-              src="src/assets/images/вареники/вареники з вишнею/vareniki-cherries-2-600x400.jpg"
-            />
-            <div>
-              <p>вареники з вишнею</p>
-              <b>235 uah</b>
-            </div>
-            <img
-              className="remove-btn"
-              width={10}
-              src="/images/btn-remove.png"
-            />
+          <img
+            className="remove-btn"
+            width={10}
+            src="/images/btn-remove.png"
+          />
+        </div>
+         ))}
           </div>
 
           <div className="cartTotal-block">
@@ -59,7 +47,7 @@ export default function Drower(props) {
             </ul>
             <button className="greenButton">Оформити замовлення </button>
           </div>
-        </div>
+        
       </div>
     </div>
   );
