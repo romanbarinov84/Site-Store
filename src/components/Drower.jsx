@@ -1,4 +1,4 @@
-export default function Drower({onClose,items = []}) {
+export default function Drower({onClose,onRemove ,items = []}) {
   return (
     <div className="overlay">
       <div className="drawer">
@@ -12,8 +12,18 @@ export default function Drower({onClose,items = []}) {
           />
         </h2>
 
+        <div className="cartEmpty">
+          <img  width={150} src="public/images/empty cart.jpg" alt="Empty cart logo" />
+          <h2>Кошик порожній</h2>
+          <p style={{opacity:.5, margin:0}}>Зробіть вибір для замовлення</p>
+          <button className="greenButton" style={{color:"white"}}>Повернутися назад</button>
+        </div>
+
+       
+
         <div  className="items">
          {items.map((obj) => (
+          
           <div className="cart-item">
           <img
             width={150}
@@ -24,6 +34,7 @@ export default function Drower({onClose,items = []}) {
             <b> Price : {obj.price} uah </b>
           </div>
           <img
+            onClick={() => onRemove(obj.id)}
             className="remove-btn"
             width={10}
             src="/images/btn-remove.png"
