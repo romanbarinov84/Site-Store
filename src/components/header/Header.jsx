@@ -23,9 +23,9 @@ export default function Header(props) {
             <Link to="/HeaderPage">Головна</Link> 
             </li>
             <li>
-              <a href="#" onClick={toggleMenu}>
+              <Link to="/Menu" href="#" onClick={toggleMenu}>
                 Меню
-              </a>
+              </Link>
             </li>
             {isOpen && (
               <ul className="dropDown">

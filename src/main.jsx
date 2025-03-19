@@ -4,6 +4,7 @@ import { StrictMode } from "react";
 import "./index.scss";
 import App from "./App.jsx";
 import HeaderPage from "./Pages/HeaderPages/HeadPage.jsx";
+import Menu from "./Pages/Menu.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -11,6 +12,7 @@ createRoot(document.getElementById("root")).render(
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/HeaderPage" element={<HeaderPage />} />
+        <Route path="/Menu" element={<App />} />
       </Routes>
     </Router>
   </StrictMode>

@@ -1,11 +1,10 @@
-
 import Header from "./components/header/Header";
 import Footer from "./components/Footer/Footer";
 import Drower from "./components/Drower";
 import Content from "./components/Content";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Menu from "./Pages/HeaderPages/Menu/Menu";
+import Menu from "./Pages/Menu";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -51,8 +50,14 @@ function App() {
       ) : null}
       <Header onClickCart={() => setCartOpened(true)} />
       <Content onSearchValueChange={onSearchValueChange} />
-      <Menu items={items} searchValue={searchValue} setSearchValue={setSearchValue} onSearchValueChange={onSearchValueChange} onAddToCart={onAddToCart}/>
-      <Footer/>
+      <Menu
+        items={items}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        onSearchValueChange={onSearchValueChange}
+        onAddToCart={onAddToCart}
+      />
+      <Footer />
     </div>
   );
 }

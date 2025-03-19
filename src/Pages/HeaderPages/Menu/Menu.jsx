@@ -1,10 +1,9 @@
-import Cards from "../../../components/Card/Card.jsx";
+import Cards from "../components/Card/Card.jsx";
 
-export default function Menu({items,searchValue,onAddToCart}){
-
-    return (
-        <>
-        <div className="content-cards">
+export default function Menu({ items, searchValue, onAddToCart }) {
+  return (
+    <>
+      <div className="content-cards">
         {items
           .filter((item) =>
             item.name.toLowerCase().includes(searchValue.toLowerCase())
@@ -20,6 +19,6 @@ export default function Menu({items,searchValue,onAddToCart}){
             />
           ))}
       </div>
-        </>
-    )
+    </>
+  );
 }
