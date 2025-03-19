@@ -1,5 +1,5 @@
 .card{
-   
+    position: relative;
     box-shadow: rgba($color: grey, $alpha: .6);
     border-radius: 10px;
     padding: 20px;
@@ -16,8 +16,14 @@
     }
   
     .favorite{
+      width: 30px;
+      height: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       position: absolute;
-      top: 0;
+      top: 10px;
+      right: 10px; /* Было 5px, увеличил для корректности */
       cursor: pointer;
     }
   

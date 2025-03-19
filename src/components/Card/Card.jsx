@@ -1,25 +1,25 @@
-import { useState } from "react";
-import "./Card.scss";
+import {  useState } from "react";
+import "./Card.scss"
 import React from "react";
 
-export default function Cards({
-  onClickFavorite,
-  imageUrl,
-  title,
-  price,
-  onClickBtn,
-}) {
+
+export default function Cards({imageUrl,title,price,onClickBtn}) {
   const [isAdded, setIsAdded] = useState(false);
+  const [isFavorite,setIsFavorite] = useState(true)
 
   const onClickPlus = () => {
-    onClickBtn({ imageUrl, title, price });
+    onClickBtn({imageUrl,title,price})
     setIsAdded(!isAdded);
-  };
+  }
 
+ const onClickFavorite = () => {
+  setIsFavorite(!isFavorite)
+ }
+  
   return (
     <div className="card">
       <div className="favorite" onClick={onClickFavorite}>
-        <img src="/images/heart.png" alt="heart-unliked" />
+        <img  src={ isFavorite ? "/images/heart.png"  : "public/images/liked heart.png" } alt="heart-unliked"/>
       </div>
 
       <img width={250} src={imageUrl} alt="images" />
@@ -29,13 +29,7 @@ export default function Cards({
           <span>Price:</span>
           <b>{price} uah</b>
         </div>
-        <button
-          className="button"
-          onClick={onClickPlus}
-          style={{ color: isAdded ? "red" : "orange" }}
-        >
-          {isAdded ? "У кошику" : "Додати у кошик"}
-        </button>
+        <button className="button" onClick={onClickPlus} style={{color:isAdded ? "red" : "orange"}}>{isAdded ? "У кошику" : "Додати у кошик"}</button>
       </div>
     </div>
   );
