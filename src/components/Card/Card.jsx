@@ -3,12 +3,14 @@ import "./Card.scss"
 import React from "react";
 
 
-export default function Cards({imageUrl,title,price,onClickBtn}) {
-  const [isAdded, setIsAdded] = useState(false);
+export default function Cards({imageUrl,title,id,price,onClickBtn, added = false}) {
+  const [isAdded, setIsAdded] = useState(added);
   const [isFavorite,setIsFavorite] = useState(true)
 
   const onClickPlus = () => {
-    onClickBtn({imageUrl,title,price})
+
+    
+    onClickBtn({ imageUrl,title,price,id})
     setIsAdded(!isAdded);
   }
 

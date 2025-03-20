@@ -23,10 +23,11 @@ export default function Header(props) {
             <Link to="/HeaderPage">Головна</Link> 
             </li>
             <li>
-              <Link to="/Menu">
-              <a href="#" onClick={toggleMenu}>
-                Меню
-              </a></Link>
+              <>
+              <Link to="/Menu" >
+               Меню
+              </Link>
+              <img width={15} onClick={toggleMenu} src="src/assets/threeugl.png" alt="MenuBtn" /></>
             </li>
             {isOpen && (
               <ul className="dropDown">

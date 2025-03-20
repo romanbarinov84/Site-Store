@@ -1,7 +1,6 @@
 import "./HeaderPage.scss";
 import React,{useState} from "react";
 import Header from "../../components/header/Header.jsx";
-import Footer from "../../components/Footer/Footer.jsx";
 import Drower from "../../components/Drower.jsx";
 
 
@@ -50,7 +49,7 @@ export default function HeaderPage() {
             <h2>які смакують по-домашньому</h2>
           </div>
           </div>
-      <Footer />
+   
     </>
   );
 }

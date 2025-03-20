@@ -4,7 +4,7 @@ import { StrictMode } from "react";
 import "./index.scss";
 import App from "./App.jsx";
 import HeaderPage from "./Pages/HeaderPages/HeadPage.jsx";
-
+import Footer from "./components/Footer/Footer.jsx";
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -14,6 +14,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/HeaderPage" element={<HeaderPage />} />
         <Route path="/Menu" element={<App />} />
       </Routes>
+      <Footer />
     </Router>
   </StrictMode>
 );

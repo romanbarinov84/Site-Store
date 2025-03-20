@@ -1,5 +1,4 @@
 import Header from "./components/header/Header";
-import Footer from "./components/Footer/Footer";
 import Drower from "./components/Drower";
 import Content from "./components/Content";
 import { useEffect, useState } from "react";
@@ -13,21 +12,32 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
 
   useEffect(() => {
-    axios
-      .get("https://67d67177286fdac89bc1ec9d.mockapi.io/Items")
-      .then((res) => {
-        setItems(res.data);
-      });
-    axios
-      .get("https://67d67177286fdac89bc1ec9d.mockapi.io/Carts")
-      .then((res) => {
-        setCartItems(res.data);
-      });
+    async function fetchData() {
+      try {
+        const itemsResponse = await axios.get("https://67d67177286fdac89bc1ec9d.mockapi.io/Items");
+        const cartResponse = await axios.get("https://67d67177286fdac89bc1ec9d.mockapi.io/Carts");
+
+        setItems(itemsResponse.data);
+        setCartItems(cartResponse.data);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
   }, []);
 
   const onAddToCart = (obj) => {
-    axios.post("https://67d67177286fdac89bc1ec9d.mockapi.io/Carts", obj);
-    setCartItems((prev) => [...prev, obj]);
+    try {
+      if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
+        setCartItems((prev) => prev.filter(item => Number(item.id) !== Number(obj.id)));
+      } else {
+        axios.post("https://67d67177286fdac89bc1ec9d.mockapi.io/Carts", obj);
+        setCartItems((prev) => [...prev, obj]);
+      }
+    } catch (error) {
+      console.error("Error adding to cart:", error);
+    }
   };
 
   const onRemoveItem = (id) => {
@@ -42,22 +52,24 @@ function App() {
   return (
     <div className="wrapper">
       {cartOpened ? (
-        <Drower items={cartItems} onClose={() => setCartOpened(false)}onRemove={onRemoveItem}   /> ) : null}
-          <Header onClickCart={() => setCartOpened(true)} />
-            <Content onSearchValueChange={onSearchValueChange} />
-          <Menu  items={items} searchValue={searchValue} setSearchValue={setSearchValue} onSearchValueChange={onSearchValueChange}  onAddToCart={onAddToCart} />
-      <Footer />
-           
+        <Drower items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />
+      ) : null}
+      <Header onClickCart={() => setCartOpened(true)} />
+      <Content onSearchValueChange={onSearchValueChange} />
+      <Menu
+        items={items}
+        cartItems={cartItems}
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        onSearchValueChange={onSearchValueChange}
+        onAddToCart={onAddToCart}
+      />
     </div>
   );
 }
 
 export default App;
-     
-      
-    
-      
-       
+
        
        
       

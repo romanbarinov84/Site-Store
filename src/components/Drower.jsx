@@ -16,7 +16,7 @@ export default function Drower({ onClose, onRemove, items = [] }) {
         {items.length > 0 ? (
           <div className="items">
             {items.map((obj) => (
-              <div className="cart-item">
+              <div key={obj.id} className="cart-item">
                 <img width={150} src={obj.imageUrl} />
                 <div>
                   <p>{obj.name}</p>
