@@ -4,7 +4,7 @@ import { StrictMode } from "react";
 import "./index.scss";
 import App from "./App.jsx";
 import HeaderPage from "./Pages/HeaderPages/HeadPage.jsx";
-import Menu from "./Pages/Menu.jsx";
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

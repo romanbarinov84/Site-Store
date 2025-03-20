@@ -1,0 +1,90 @@
+.HeaderPage-content{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: wheat;
+
+.HeaderPage-topContent{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+        background-color: brown;
+        color: wheat;
+        border: 2px solid brown;
+        box-shadow: 1px 1px 3px 4px rgba($color: brown, $alpha: 1.0);
+    }
+
+    
+    .HPcontent-content{
+       width: 100%;
+        background-image: url("../../assets/workImages/headerpageImage.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        height: 100vh;
+
+        & h2{
+            font-size: 80px;
+            margin-left: 50px;
+            color: rgb(198, 154, 97);
+        }
+        & h3{
+            font-size: 60px;
+            margin-left: 80px;
+            margin-top: 20px;
+        }
+        & p{
+            margin-left: 130px;
+            font-size: 30px;
+            color: brown;
+        }
+        }
+        
+   .HPcontent-bottom{
+    display: flex;
+    position: relative;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 30px;
+    width: 90%;
+    height: 30vh;
+    top: -120px;
+
+    & .HPcontent-left,
+    .HPcontent-center,
+    .HPcontent-right{
+        padding: 20px;
+        color: brown;
+        box-shadow: 1px 1px 3px 3px rgba($color: #e65f5f, $alpha: .5);
+        border-radius: 30px;
+        background-color: antiquewhite;
+
+       
+    }
+
+   
+   }     
+   .Hpcontent-side{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(235, 230, 225);
+    box-shadow: 2px 2px 2px 2px rgba($color: rgb(135, 134, 134), $alpha: .6);
+    color: #e65f5f;
+
+    & h1{
+        color: #5d5d5d;
+        font-size: 50px;
+    }
+    & h2{
+        font-size: 50px;
+
+    }
+}
+}

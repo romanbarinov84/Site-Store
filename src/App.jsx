@@ -4,7 +4,7 @@ import Drower from "./components/Drower";
 import Content from "./components/Content";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import Menu from "./Pages/Menu";
+import Menu from "./Pages/Menu/Menu";
 
 function App() {
   const [items, setItems] = useState([]);
@@ -42,24 +42,24 @@ function App() {
   return (
     <div className="wrapper">
       {cartOpened ? (
-        <Drower
-          items={cartItems}
-          onClose={() => setCartOpened(false)}
-          onRemove={onRemoveItem}
-        />
-      ) : null}
-      <Header onClickCart={() => setCartOpened(true)} />
-      <Content onSearchValueChange={onSearchValueChange} />
-      <Menu
-        items={items}
-        searchValue={searchValue}
-        setSearchValue={setSearchValue}
-        onSearchValueChange={onSearchValueChange}
-        onAddToCart={onAddToCart}
-      />
+        <Drower items={cartItems} onClose={() => setCartOpened(false)}onRemove={onRemoveItem}   /> ) : null}
+          <Header onClickCart={() => setCartOpened(true)} />
+            <Content onSearchValueChange={onSearchValueChange} />
+          <Menu  items={items} searchValue={searchValue} setSearchValue={setSearchValue} onSearchValueChange={onSearchValueChange}  onAddToCart={onAddToCart} />
       <Footer />
+           
     </div>
   );
 }
 
 export default App;
+     
+      
+    
+      
+       
+       
+       
+      
+     
+

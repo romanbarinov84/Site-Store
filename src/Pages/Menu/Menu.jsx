@@ -1,4 +1,4 @@
-import Cards from "../components/Card/Card.jsx";
+import Cards from "../../components/Card/Card.jsx";
 
 export default function Menu({ items, searchValue, onAddToCart }) {
   return (
