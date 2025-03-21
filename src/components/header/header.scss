@@ -56,7 +56,7 @@ header {
         text-align: center;
         box-shadow: 2px 3px 3px 2px rgba(30,80,70 , $alpha: .5);
         background-color: #FFF5E1;
-        
+      
        
         
         & li{
@@ -66,8 +66,9 @@ header {
         }
         & li a:hover {
             background-color: brown;
+            border-radius: 6px;
             color: #FFF5E1;
-            box-shadow: 2px 2px 2px 2px;
+            transition: ease-in-out .3s;
           }
       }
     }

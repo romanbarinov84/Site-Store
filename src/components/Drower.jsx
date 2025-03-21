@@ -1,3 +1,7 @@
+import Info from "./info";
+
+
+
 export default function Drower({ onClose, onRemove, items = [] }) {
   return (
     <div className="overlay">
@@ -32,20 +36,8 @@ export default function Drower({ onClose, onRemove, items = [] }) {
             ))}
           </div>
         ) : (
-          <div className="cartEmpty">
-            <img
-              width={150}
-              src="public/images/empty cart.jpg"
-              alt="Empty cart logo"
-            />
-            <h2>Кошик порожній</h2>
-            <p style={{ opacity: 0.5, margin: 0 }}>
-              Зробіть вибір для замовлення
-            </p>
-            <button className="greenButton" style={{ color: "white" }}>
-              Повернутися назад
-            </button>
-          </div>
+          <Info title="Кошик порожній" description="Зробіть вибір для замовлення" image="public/images/empty cart.jpg"/>
+         
         )}
 
         {items.length > 0 ? (

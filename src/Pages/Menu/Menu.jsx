@@ -1,6 +1,14 @@
 import Cards from "../../components/Card/Card.jsx";
+import { AppContext } from "../../App.jsx";
+import React, { useContext } from "react";
 
-export default function Menu({ items, searchValue, onAddToCart, cartItems, isLoading }) {
+
+export default function Menu({ items, searchValue, onAddToCart, isLoading }) {
+
+ 
+    const { isItemAdded } = useContext(AppContext);
+  
+
   
   const renderItems = () => {
     if (isLoading) {
@@ -17,7 +25,7 @@ export default function Menu({ items, searchValue, onAddToCart, cartItems, isLoa
           price={item.price}
           imageUrl={item.imageUrl}
           onClickBtn={onAddToCart}
-          added={cartItems.some((obj) => obj.id === item.id)}
+          added={isItemAdded(item.id)}
           loading={false}
         />
       ));
