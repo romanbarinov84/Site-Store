@@ -14,11 +14,15 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
-        const itemsResponse = await axios.get("https://67d67177286fdac89bc1ec9d.mockapi.io/Items");
-        const cartResponse = await axios.get("https://67d67177286fdac89bc1ec9d.mockapi.io/Carts");
+        const cartResponse = await axios.get(
+          "https://67d67177286fdac89bc1ec9d.mockapi.io/Carts"
+        );
+        const itemsResponse = await axios.get(
+          "https://67d67177286fdac89bc1ec9d.mockapi.io/Items"
+        );
 
-        setItems(itemsResponse.data);
         setCartItems(cartResponse.data);
+        setItems(itemsResponse.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
@@ -30,7 +34,9 @@ function App() {
   const onAddToCart = (obj) => {
     try {
       if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
-        setCartItems((prev) => prev.filter(item => Number(item.id) !== Number(obj.id)));
+        setCartItems((prev) =>
+          prev.filter((item) => Number(item.id) !== Number(obj.id))
+        );
       } else {
         axios.post("https://67d67177286fdac89bc1ec9d.mockapi.io/Carts", obj);
         setCartItems((prev) => [...prev, obj]);
@@ -52,7 +58,11 @@ function App() {
   return (
     <div className="wrapper">
       {cartOpened ? (
-        <Drower items={cartItems} onClose={() => setCartOpened(false)} onRemove={onRemoveItem} />
+        <Drower
+          items={cartItems}
+          onClose={() => setCartOpened(false)}
+          onRemove={onRemoveItem}
+        />
       ) : null}
       <Header onClickCart={() => setCartOpened(true)} />
       <Content onSearchValueChange={onSearchValueChange} />
@@ -69,9 +79,3 @@ function App() {
 }
 
 export default App;
-
-       
-       
-      
-     
-
