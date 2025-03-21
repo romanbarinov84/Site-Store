@@ -10,9 +10,12 @@ function App() {
   const [cartItems, setCartItems] = useState([]);
   const [cartOpened, setCartOpened] = useState(false);
   const [searchValue, setSearchValue] = useState("");
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
+   
     async function fetchData() {
+      setIsLoading(true)
       try {
         const cartResponse = await axios.get(
           "https://67d67177286fdac89bc1ec9d.mockapi.io/Carts"
@@ -20,7 +23,8 @@ function App() {
         const itemsResponse = await axios.get(
           "https://67d67177286fdac89bc1ec9d.mockapi.io/Items"
         );
-
+        setIsLoading(false)
+        
         setCartItems(cartResponse.data);
         setItems(itemsResponse.data);
       } catch (error) {
@@ -73,6 +77,7 @@ function App() {
         setSearchValue={setSearchValue}
         onSearchValueChange={onSearchValueChange}
         onAddToCart={onAddToCart}
+        isLoading={isLoading}
       />
     </div>
   );
