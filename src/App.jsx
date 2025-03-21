@@ -69,7 +69,7 @@ function App() {
   }
 
   return (
- <AppContext.Provider value={{cartItems,items,isItemAdded ,setCartOpened }}>
+ <AppContext.Provider value={{cartItems,items,isItemAdded ,setCartOpened ,setCartItems}}>
    <div className="wrapper">
       {cartOpened ? (
         <Drower
