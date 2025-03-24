@@ -1,9 +1,16 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.scss";
+import { AppContext } from "../../App";
+
 
 export default function Header(props) {
   const [isOpen, setIsOpen] = useState(false);
+  const { cartItems = [] } = useContext(AppContext);
+
+  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
+
+  console.log(totalPrice);
 
   const toggleMenu = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -20,14 +27,18 @@ export default function Header(props) {
         <div className="headerInfo">
           <ul className="menu">
             <li>
-            <Link to="/HeaderPage">Головна</Link> 
+              <Link to="/HeaderPage">Головна</Link>
             </li>
             <li>
               <>
-              <Link to="/Menu" >
-               Меню
-              </Link>
-              <img width={15} onClick={toggleMenu} src="src/assets/threeugl.png" alt="MenuBtn" /></>
+                <Link to="/Menu">Меню</Link>
+                <img
+                  width={15}
+                  onClick={toggleMenu}
+                  src="src/assets/threeugl.png"
+                  alt="MenuBtn"
+                />
+              </>
             </li>
             {isOpen && (
               <ul className="dropDown">
@@ -89,10 +100,18 @@ export default function Header(props) {
             src="/images/basket_icon-icons.com_66289.svg"
             alt="img-case"
           />
-          <span> uah.</span>
+          <span> {totalPrice} .uah</span>
         </li>
+
         <li>
-          <img width={30} height={30} src="/images/user.png" alt="User-logo" />
+          <Link to="/Orders">
+            <img
+              width={30}
+              height={30}
+              src="/images/user.png"
+              alt="User-logo"
+            />
+         </Link>
         </li>
       </ul>
     </header>

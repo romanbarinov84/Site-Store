@@ -5,6 +5,9 @@ import "./index.scss";
 import App from "./App.jsx";
 import HeaderPage from "./Pages/HeaderPages/HeadPage.jsx";
 import Footer from "./components/Footer/Footer.jsx";
+import { Orders } from "./components/Orders.jsx";
+
+
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
@@ -13,6 +16,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/" element={<App />} />
         <Route path="/HeaderPage" element={<HeaderPage />} />
         <Route path="/Menu" element={<App />} />
+        <Route path="/Orders" element={<Orders/>}/>
       </Routes>
       <Footer />
     </Router>
