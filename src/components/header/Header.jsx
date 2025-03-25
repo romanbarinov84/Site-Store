@@ -1,16 +1,11 @@
 import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import "./header.scss";
-import { AppContext } from "../../App";
-
+import { AheadContext } from "../header/Ahead.jsx";
 
 export default function Header(props) {
+  const { totalPrice } = useContext(AheadContext);
   const [isOpen, setIsOpen] = useState(false);
-  const { cartItems = [] } = useContext(AppContext);
-
-  const totalPrice = cartItems.reduce((sum, obj) => obj.price + sum, 0);
-
-  console.log(totalPrice);
 
   const toggleMenu = () => {
     setIsOpen((isOpen) => !isOpen);
@@ -93,6 +88,7 @@ export default function Header(props) {
             alt="heart-logo"
           />
         </li>
+
         <li onClick={props.onClickCart}>
           <img
             width={30}
@@ -111,7 +107,7 @@ export default function Header(props) {
               src="/images/user.png"
               alt="User-logo"
             />
-         </Link>
+          </Link>
         </li>
       </ul>
     </header>

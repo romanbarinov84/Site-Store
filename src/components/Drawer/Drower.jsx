@@ -1,15 +1,16 @@
 import { useState, useContext } from "react";
-import Info from "./info";
-import { AppContext } from "../App";
+import Info from "../info";
+import { AppContext } from "../../App";
+import styles from "./Drower.module.scss"; 
 
-export default function Drower({ onClose, onRemove, items = [] }) {
+
+
+export default function Drower({ onClose, onRemove, items = [], opened }) {
   const [isOrderComplete, setIsOrderComplete] = useState(false);
   const { setCartItems } = useContext(AppContext);
 
   const totalPrice = items.reduce((sum, obj) => sum + obj.price, 0);
-  const tax = (totalPrice * 0.01).toFixed(2); 
-
-
+  const tax = (totalPrice * 0.01).toFixed(2);
 
   const onClickOrder = () => {
     setIsOrderComplete(true);
@@ -17,7 +18,7 @@ export default function Drower({ onClose, onRemove, items = [] }) {
   };
 
   return (
-    <div className="overlay">
+    <div className={`${styles.overlay} ${opened ? styles.overlayVisible : ""}`}>
       <div className="drawer">
         <h2>
           Кошик

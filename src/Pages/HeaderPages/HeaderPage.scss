@@ -87,4 +87,32 @@
 
     }
 }
+
+
+}
+.delivery-contents{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: white;
+    margin-bottom: 30px;
+    
+    .delivery-text{
+        width: 50%;
+        font-size: 20px;
+        margin-left: 30px;
+
+        h2{
+            font-size: 80px;
+            color: brown;
+        }
+        p{
+            font-size: 25px;
+            color: #5d5d5d;
+        }
+    }
+    .delivery-image{
+        margin-right: 30px;
+    }
 }

@@ -5,17 +5,16 @@ import React, { useContext } from "react";
 
 export default function Menu({ items, searchValue, onAddToCart, isLoading }) {
 
- 
-    const { isItemAdded } = useContext(AppContext);
-  
-
-  
+ const { isItemAdded } = useContext(AppContext);
+    
   const renderItems = () => {
     if (isLoading) {
       return [...Array(10)].map((_, index) => <Cards key={index} loading={true} />);
     }
 
-    return items
+    return (
+
+       items
       .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
       .map((item) => (
         <Cards
@@ -28,8 +27,14 @@ export default function Menu({ items, searchValue, onAddToCart, isLoading }) {
           added={isItemAdded(item.id)}
           loading={false}
         />
+    )
+   
       ));
   };
 
   return <div className="content-cards">{renderItems()}</div>;
 }
+
+  
+
+  
