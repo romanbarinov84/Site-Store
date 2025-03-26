@@ -1,0 +1,72 @@
+
+
+
+.delivery-content{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    background-image: url("./src/assets/workImages/delivery-fon.jpg");
+    background-size: cover;
+    background-position: center;
+    margin-bottom: 10px;
+    
+   
+    .content-text{
+        height: 100%;
+        width: 60%;
+        justify-content: center;
+        align-items: center;
+        background-color: #282727;
+        opacity: .9;
+
+        h2{
+            color: white;
+            font-size: 60px;
+            text-align: center;
+            margin-top: 50px;
+        }
+        p{
+            color: white;
+            font-size: 30px;
+            text-align: center;
+            margin-top: 50px;
+        }
+    }
+
+    .content-text__middle{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 50px;
+        margin-bottom: 50px;
+    }
+    & .content-middle-img{
+        width: 60%;
+        margin-left: 10px;
+
+        img{
+            border-radius: 10px;
+            box-shadow: 3px 3px 12px 12px rgba($color: white, $alpha: 1.0);
+        }
+    }
+    .content-middle-text{
+        width: 80%;
+        margin-left: 10px;
+
+        p{
+            font-size: 30px;
+            color: goldenrod;
+        }
+    }
+    .content-bottom{
+        width: 98%;
+        margin: 10px;
+        margin-top: 30px;
+
+        h2{
+            font-size: 60px;
+            font-weight: bold;
+            color: whitesmoke;
+        }
+    }
+}

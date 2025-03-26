@@ -1,0 +1,23 @@
+
+.contacts-context{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: #3a3a3a;
+    color: whitesmoke;
+    box-shadow: 10px 10px 4px 4px rgba($color: #5d5d5d, $alpha: 1.0);
+
+    h2{
+        font-size: 60px;
+        text-align: center;
+    }
+
+    .contacts-info{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 100px;
+    }
+
+}

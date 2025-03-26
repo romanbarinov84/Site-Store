@@ -64,16 +64,16 @@ export default function Header(props) {
               </ul>
             )}
             <li>
-              <a href="#">Про нас</a>
+              <Link to="/AbtUs">Про нас</Link>
             </li>
             <li>
-              <a href="#">Доставка и Оплата</a>
+              <Link to="/Delivery">Доставка и Оплата</Link>
             </li>
             <li>
-              <a href="#">Контакти</a>
+              <Link to="/Contacts">Контакти</Link>
             </li>
             <li>
-              <a href="#">Мапа магазинів</a>
+              <Link to="/Map">Мапа магазинів</Link>
             </li>
           </ul>
         </div>

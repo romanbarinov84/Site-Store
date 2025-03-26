@@ -3,7 +3,6 @@ import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import Menu from "./Pages/Menu/Menu";
 
-
 export const AppContext = createContext({});
 
 function App() {
@@ -64,14 +63,12 @@ function App() {
     return cartItems.some((obj) => Number(obj.id) === Number(id));
   };
 
-  
-
   return (
     <AppContext.Provider
       value={{ cartItems, items, isItemAdded, setCartItems, onRemoveItem }}
     >
       <Content onSearchValueChange={onSearchValueChange} />
-        
+
       <Menu
         items={items}
         cartItems={cartItems}
