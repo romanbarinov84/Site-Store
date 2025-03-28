@@ -13,6 +13,7 @@ import { Contacts } from "./Pages/Contacts/Contacts.jsx";
 import { MapStore } from "./Pages/MapStore/Map.jsx";
 
 
+
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <Router>
@@ -26,6 +27,7 @@ createRoot(document.getElementById("root")).render(
         <Route path="/Delivery"  element={<Delivery/>}/>
         <Route path="/Contacts"  element={<Contacts/>}/>
         <Route path="/Map"  element={<MapStore/>}/>
+        
 
       </Routes>
       <Footer />

@@ -18,7 +18,7 @@ export default function Menu({ items, searchValue, onAddToCart, isLoading }) {
       .filter((item) => item.name.toLowerCase().includes(searchValue.toLowerCase()))
       .map((item) => (
         <Cards
-          key={item.id}
+          key={item.id ||item.index}
           id={item.id}
           title={item.name}
           price={item.price}

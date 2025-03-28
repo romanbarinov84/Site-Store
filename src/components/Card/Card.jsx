@@ -10,8 +10,8 @@ export default function Cards({
   id,
   price,
   onClickBtn,
-
-  loading = false,
+loading = false,
+  
 }) {
   const { isItemAdded } = useContext(AppContext);
   const [isFavorite, setIsFavorite] = useState(true);

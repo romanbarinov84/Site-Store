@@ -1,7 +1,10 @@
 import Content from "./components/Content";
-import { createContext, useEffect, useState } from "react";
+import { createContext, useEffect ,useState } from "react";
 import axios from "axios";
 import Menu from "./Pages/Menu/Menu";
+
+
+
 
 export const AppContext = createContext({});
 
@@ -11,30 +14,32 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
+ 
+  
+
   useEffect(() => {
     async function fetchData() {
       setIsLoading(true);
       try {
-        const cartResponse = await axios.get(
-          "https://67d67177286fdac89bc1ec9d.mockapi.io/Carts"
-        );
+        
         const itemsResponse = await axios.get(
           "https://67d67177286fdac89bc1ec9d.mockapi.io/Items"
         );
         setIsLoading(false);
 
-        setCartItems(cartResponse.data);
+ 
         setItems(itemsResponse.data);
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     }
-
     fetchData();
+    
   }, []);
 
   const onAddToCart = (obj) => {
-    try {
+   
+  try {
       if (cartItems.find((item) => Number(item.id) === Number(obj.id))) {
         setCartItems((prev) =>
           prev.filter((item) => Number(item.id) !== Number(obj.id))
@@ -43,10 +48,15 @@ function App() {
         axios.post("https://67d67177286fdac89bc1ec9d.mockapi.io/Carts", obj);
         setCartItems((prev) => [...prev, obj]);
       }
+     
     } catch (error) {
       console.error("Error adding to cart:", error);
     }
+    
   };
+    
+    
+    
 
   const onRemoveItem = (id) => {
     axios.delete(`https://67d67177286fdac89bc1ec9d.mockapi.io/Carts/${id}`);
@@ -62,14 +72,14 @@ function App() {
   const isItemAdded = (id) => {
     return cartItems.some((obj) => Number(obj.id) === Number(id));
   };
-
+ 
   return (
     <AppContext.Provider
-      value={{ cartItems, items, isItemAdded, setCartItems, onRemoveItem }}
+      value={{ cartItems, items, isItemAdded, setCartItems, onRemoveItem,onAddToCart }}
     >
+     
       <Content onSearchValueChange={onSearchValueChange} />
-
-      <Menu
+       <Menu
         items={items}
         cartItems={cartItems}
         searchValue={searchValue}
@@ -78,8 +88,11 @@ function App() {
         onAddToCart={onAddToCart}
         isLoading={isLoading}
       />
-    </AppContext.Provider>
+          </AppContext.Provider>
   );
 }
 
 export default App;
+     
+     
+

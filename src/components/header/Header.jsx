@@ -89,8 +89,9 @@ export default function Header(props) {
           />
         </li>
 
-        <li onClick={props.onClickCart}>
-          <img
+        <li>
+        
+          <img onClick={props.onClickCart}
             width={30}
             height={30}
             src="/images/basket_icon-icons.com_66289.svg"
