@@ -7,6 +7,15 @@
 Посмотреть проект можно по следующей ссылке:  
 [Сайт компании Галя Балувана](https://romanbarinov84.github.io/Site-Store/)
 
+# Photo
+![Снимок экрана (6)](https://github.com/user-attachments/assets/df730acc-5dc8-4cb8-b9b0-d72e8f8bb7b4)
+![Снимок экрана (7)](https://github.com/user-attachments/assets/3889a15f-c843-49ac-9d7c-d5b52749c54c)
+
+![Снимок экрана (9)](https://github.com/user-attachments/assets/45f4d377-c072-41ac-a279-c5408c7e0a45)
+
+![Снимок экрана (8)](https://github.com/user-attachments/assets/34bfc871-d819-42cf-b0c7-7760c2b42f2f)
+
+
 ## Содержание
 
 - [О проекте](#о-проекте)
